@@ -47,9 +47,11 @@ which computes and compares the mean and the variance of each activation channel
 instead of the Gram matrix of the layer.
 
 The content image is a ballerina image:
+
 ![Ballerina](images/dancing.jpg)
 
 The style image is a picasso painting:
+
 ![Picasso](images/picasso.jpg)
 
 Comparing between the results, we get:
