@@ -38,3 +38,31 @@ patterns. This aligns with the texture synthesis logic, since the early
 layers capture low-level features such as edges and simple textures,
 while the deeper layers capture higher-level features such as
 complex textures, object parts, etc.
+
+## MeanVar Style Loss
+Here we run the neural style transfer algorithm with a new style loss called "MeanVar", 
+which computes and compares the mean and the variance of each activation channel, in a given layer,
+instead of the Gram matrix of the layer.
+Comparing between the  results, we get:
+![Style Comparison](images/mean_var_comparison.jpg)
+
+We can see that the patterns of the styled image using MeanVarLoss
+(right image) are smoother (less structured) and the ballerina is
+whiter and takes less of the patterns of the style image than the
+patterns and the ballerina of the styled image using the original style
+loss (left image).
+One reason for those differences can be that the gram matrix loss
+can effectively transfer the color distribution and contrast properties
+of the style image to the content image. It captures the relationships
+between different color channels and their variations. The mean and
+variance loss, being channel-wise, may result in a different color
+distribution and contrast in the output image, potentially
+emphasizing local color variations or affecting the overall color
+balance. This can explain the differences in the colors of the ballerina.
+Moreover, The gram matrix loss tends to preserve and transfer largescale textures and patterns from the style image to the content
+image. It focuses on capturing the overall style of the image. In
+contrast, the mean and variance loss may prioritize smaller-scale
+details and variations within the style image. This can result in a
+different emphasis on fine textures and subtle patterns. We can see
+that in the structure differences of the shapes in the background of
+each result.
