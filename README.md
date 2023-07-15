@@ -10,3 +10,5 @@ This task is comprised of two main components:
 The first part of the project modifies the style-transfer algorithm to perform feature inversion, text synthesis and using a different style loss.
 
 ## Feature Inversion
+Modifying the neural style transfer algorithm to invert features from different stages of the
+VGG-19 network, we get the following results:
