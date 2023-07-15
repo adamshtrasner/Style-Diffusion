@@ -44,7 +44,7 @@ Here we run the neural style transfer algorithm with a new style loss called "Me
 which computes and compares the mean and the variance of each activation channel, in a given layer,
 instead of the Gram matrix of the layer.
 Comparing between the  results, we get:
-![Style Comparison](images/mean_var_comparison.jpg)
+![Style Comparison](images/mean_var_comparison.png)
 
 We can see that the patterns of the styled image using MeanVarLoss
 (right image) are smoother (less structured) and the ballerina is
