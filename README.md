@@ -10,6 +10,7 @@ This task is comprised of two main components:
 The first part of the project modifies the style-transfer algorithm to perform feature inversion, text synthesis and using a different style loss.
 
 ## Feature Inversion
+For this task we use a simple image of a church.
 Modifying the neural style transfer algorithm to invert features from different stages of the
 VGG-19 network, we get the following results:
 ![Feature Inversion](images/feature_inversion.jpg)
@@ -28,6 +29,7 @@ becomes challenging to precisely reconstruct these complex
 features from noisy initial images.
 
 ## Texture Synthesis
+For the style image we use the famous Starry Night painting by Van Gogh.
 Modifying the neural style transfer algorithm to generate a texture inspired by the style
 input, we get the following results:
 ![Texture Synthesis](images/style_synthesis.jpg)
@@ -43,7 +45,14 @@ complex textures, object parts, etc.
 Here we run the neural style transfer algorithm with a new style loss called "MeanVar", 
 which computes and compares the mean and the variance of each activation channel, in a given layer,
 instead of the Gram matrix of the layer.
-Comparing between the  results, we get:
+
+The content image is a ballerina image:
+![Ballerina](images/dancing.jpg)
+
+The style image is a picasso painting:
+![Picasso](images/picasso.jpg)
+
+Comparing between the results, we get:
 ![Style Comparison](images/mean_var_comparison.png)
 
 We can see that the patterns of the styled image using MeanVarLoss
