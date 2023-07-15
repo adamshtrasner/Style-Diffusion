@@ -12,3 +12,4 @@ The first part of the project modifies the style-transfer algorithm to perform f
 ## Feature Inversion
 Modifying the neural style transfer algorithm to invert features from different stages of the
 VGG-19 network, we get the following results:
+![Feature Inversion](images/feature_inversion.jpg)
