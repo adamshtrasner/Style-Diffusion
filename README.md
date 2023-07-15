@@ -77,3 +77,5 @@ details and variations within the style image. This can result in a
 different emphasis on fine textures and subtle patterns. We can see
 that in the structure differences of the shapes in the background of
 each result.
+
+## Style Guided Diffusion VS Text-To-Image Stable Diffusion
