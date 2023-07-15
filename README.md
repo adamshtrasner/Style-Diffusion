@@ -13,6 +13,7 @@ The first part of the project modifies the style-transfer algorithm to perform f
 For this task we use a simple image of a church.
 Modifying the neural style transfer algorithm to invert features from different stages of the
 VGG-19 network, we get the following results:
+
 ![Feature Inversion](images/feature_inversion.jpg)
 
 We can see that as we go deeper and deeper in the layers, it is
@@ -32,6 +33,7 @@ features from noisy initial images.
 For the style image we use the famous Starry Night painting by Van Gogh.
 Modifying the neural style transfer algorithm to generate a texture inspired by the style
 input, we get the following results:
+
 ![Texture Synthesis](images/style_synthesis.jpg)
 
 Here we see that the deeper the layers, the more we capture more of
@@ -55,6 +57,7 @@ The style image is a picasso painting:
 ![Picasso](images/picasso.jpg)
 
 Comparing between the results, we get:
+
 ![Style Comparison](images/mean_var_comparison.png)
 
 We can see that the patterns of the styled image using MeanVarLoss
@@ -78,4 +81,51 @@ different emphasis on fine textures and subtle patterns. We can see
 that in the structure differences of the shapes in the background of
 each result.
 
+## Style Guided Diffusion VS Style Transfer
+Here we compare between the results of the style-guided stable diffusion's 
+output and the text-to-image stable diffusion's output. 
+The style-guided diffusion algorithm is as follows:
+
+![Style Guided Algorithm](images/style_guided_algorithm.png)
+
+The style image for the style-guided diffusion algorithm is:
+
+![Van Gogh](images/van_gogh.jpg)
+
+The prompt to the text-to-image stable diffusion is “a cat with a hat”.
+The image we get from that model is:
+
+![Cat with a Hat](images/cat_with_a_hat.png)
+
+Comparing between the results of the style loss guided output and the
+style-transfer algorithm’s outputs with both the original gram style loss
+and Mean-Var loss, we get:
+
+![Style Guided VS Style Transfer](images/style_guided_comparison.png)
+
 ## Style Guided Diffusion VS Text-To-Image Stable Diffusion
+Comparing between the results of the style loss guided output to the
+ordinary text-to-image stable diffusion output with the prompt: “a cat
+with a hat in the style of The Starry Night by Van Gogh”, we get:
+
+![Style Guided VS Text-To-Image](images/style_guided_vs_prompt_comparison.png)
+
+## Conclusion
+our style-guided model captured the colors of the Starry
+Night painting and preserved some of its structure and patterns. We
+Style-Guided Gram Style
+Loss
+Mean-Var Style
+Loss
+Style Included in
+Prompt
+can see that the text-to-image stable diffusion output has more of the
+round features and line-structured shapes that uniquely identify Van
+Gogh’s painting, as well as the outputs of the style transfer algorithm
+with both of the losses. It seems that the output of style transfer with
+the MeanVar loss looks a little bit more realistic since it captured less of
+the blue and yellow colors of the Starry Night in comparison to the
+output with the gram style loss (which, as we explained in the previous
+part, is logical since the gram matrix loss can effectively transfer the
+color distribution and contrast properties of the style image to the
+content image).
